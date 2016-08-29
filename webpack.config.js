@@ -30,7 +30,7 @@ module.exports = {
    require('autoprefixer')//调用autoprefixer插件
  ],
   devServer:{
-    contentBase:"./public",
+    contentBase:"./",
     colors:true,
     historyApiFallback:true,
     inline:true,

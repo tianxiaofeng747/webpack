@@ -8,7 +8,7 @@ class List extends Component {
     constructor (props){
         super(props);
         this.componentDidMount = () =>{
-            console.log("3");
+            //console.log("3");
         }
 
     }

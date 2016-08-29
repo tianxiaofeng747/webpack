@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .title{
+            width: 100%;
+            position: fixed;
+            top:0;
+            height: 100px;
+
+        }
+        .title-mask{
+            background: rgba(255,255,255,.7);
+            border-bottom: solid 1px #fff;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+        .title-ul li{
+            line-height: 100px;
+            float: left;
+            margin-right: 10px;
+        }
+        p {
+            font-size: 24px;
+        }
+        .title-bg{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            -webkit-filter: blur(3px);
+            text-shadow:0 0 10px #000;
+            color: transparent;
+        }
+
+    </style>
+</head>
+<body>
+<div class="title">
+    <div class="title-mask">
+        <ul class="title-ul">
+            <li>首页</li>
+            <li>产品中心</li>
+            <li>关于我们</li>
+        </ul>
+    </div>
+    <div class="title-bg">
+
+    </div>
+</div>
+<div class="cont">
+    <p>文字部分......文字部分.....</p>
+
+    <p>公司简介,,,巴拉巴拉.....</p>
+    <p>当接口继承了一个类类型时，它会继承类的成员但不包括其实现。 就好像接口声明了所有类中存在的成员，但并没有提供具体实现一样。 接口同样会继承到类的private和protected成员。 这意味着当你创建了一个接口继承了一个拥有私有或受保护的成员的类时，这个接口类型只能被这个类或其子类所实现（implement）。</p>
+    <p><img src="../testUrl/1.png" alt=""></p>
+
+</div>
+<script src="../testUrl/jquery.min.js"></script>
+<script src="../testUrl/html2canvas.min.js"></script>
+<script src="../testUrl/stackBlur.js"></script>
+<script>
+    $(function () {
+        var PAGE = {
+            init:function () {
+                var self = this;
+                $(window).scrollTop(0);
+                self.copyHtml();
+            },
+            copyHtml : function () {
+                var self = this;
+                html2canvas($(".cont"), {
+                    onrendered: function (canvas) {
+                        var id = 'copyHtmlToImg';
+                        canvas.id = id;
+                        $(".title-bg").append(canvas);
+                        stackBlurCanvasRGBA(id,0,0,canvas.width,canvas.height,10);
+                        self.bindEvent(canvas);
+                    }
+                });
+            },
+            bindEvent :function (triggerDownload) {
+                var self = this;
+                $(window).on("scroll",function () {
+                    var top = $(this).scrollTop();
+                    $(triggerDownload).css("marginTop",-top);
+                });
+            }
+        };
+        PAGE.init();
+    })
+</script>
+</body>
+</html>
