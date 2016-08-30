@@ -16,6 +16,7 @@
             position: fixed;
             top:0;
             height: 100px;
+            background: #fff;
 
         }
         .title-mask{
@@ -26,6 +27,9 @@
             height: 100%;
             z-index: 10;
         }
+        .title-ul{
+            padding-left: 20px;
+        }
         .title-ul li{
             line-height: 100px;
             float: left;
@@ -33,6 +37,12 @@
         }
         p {
             font-size: 24px;
+            line-height: 24px;
+            margin-bottom: 10px;
+        }
+        img{
+            max-width: 100%;
+            display: block;
         }
         .title-bg{
             position: absolute;
@@ -43,7 +53,6 @@
             text-shadow:0 0 10px #000;
             color: transparent;
         }
-
     </style>
 </head>
 <body>
@@ -60,18 +69,22 @@
     </div>
 </div>
 <div class="cont">
-    <p>文字部分......文字部分.....</p>
-
-    <p>公司简介,,,巴拉巴拉.....</p>
-    <p>当接口继承了一个类类型时，它会继承类的成员但不包括其实现。 就好像接口声明了所有类中存在的成员，但并没有提供具体实现一样。 接口同样会继承到类的private和protected成员。 这意味着当你创建了一个接口继承了一个拥有私有或受保护的成员的类时，这个接口类型只能被这个类或其子类所实现（implement）。</p>
-    <p><img src="../testUrl/1.png" alt=""></p>
-
+    <p class="text">文字部分......文字部分.....</p>
+    <p class="text">公司简介,,,巴拉巴拉.....</p>
+    <p class="text">当接口继承了一个类类型时，它会继承类的成员但不包括其实现。 就好像接口声明了所有类中存在的成员，但并没有提供具体实现一样。 接口同样会继承到类的private和protected成员。 这意味着当你创建了一个接口继承了一个拥有私有或受保护的成员的类时，这个接口类型只能被这个类或其子类所实现（implement）。</p>
+    <p class="text">
+        学习最好的方式，是有个好师傅。他根据你的不同阶段，教导你不同的技能，循序渐进；师傅不单教你练功，还会教你做人，使你内修于心，外化于形。教你的一些道理，你可能当时不太懂，但等你苦练多日，历经曲折，终有一日茅塞顿开，再去学艺做事，事半功倍，大有精进；有一个位好导师自然是得之我幸的事情，但实际工作中很难得，也许有前辈们偶尔的点拨，有朋友的激励，但最平实可靠的方法还是来自于阅读本书原名"ThePragmaticProgrammer",也就是“注重实效的程序员”。本书涵盖了程序员成长过程中和软件开发过程中需要注意的地方。两位作者除了是程序员，AndyHunt还是一位木匠和音乐家，而DaveThomas则喜欢驾驶单引擎飞机。就两位作者而言，编程和木匠活和音乐创造，或是驾驶飞机一样，
+    </p>
+    <p><img src="http://5.26923.com/download/pic/000/326/58be2b87243297f46eca4ef82817c96f.jpg" alt=""></p>
+    <p><img src="http://a1.hoopchina.com.cn/attachment/Day_100114/237_3045381_182cc96c0e962f9.jpg" alt=""></p>
+    <p class="text"><b>注意:图片是外链的情况下没办法生成canvas 图片,必须是站内图....</b></p>
 </div>
-<script src="../testUrl/jquery.min.js"></script>
-<script src="../testUrl/html2canvas.min.js"></script>
-<script src="../testUrl/stackBlur.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.slim.js"></script>
+<script src="//cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<script src="//cdn.bootcss.com/stackblur-canvas/1.2.1/stackblur.js"></script>
 <script>
     $(function () {
+
         var PAGE = {
             init:function () {
                 var self = this;
@@ -85,7 +98,8 @@
                         var id = 'copyHtmlToImg';
                         canvas.id = id;
                         $(".title-bg").append(canvas);
-                        stackBlurCanvasRGBA(id,0,0,canvas.width,canvas.height,10);
+                        console.log(StackBlur.canvasRGBA);
+                        StackBlur.canvasRGBA(canvas,0,0,canvas.width,canvas.height,10);
                         self.bindEvent(canvas);
                     }
                 });
