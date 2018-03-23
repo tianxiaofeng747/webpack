@@ -1,6 +1,6 @@
 <template>
     <div class="hello">
-        小田测试更新01
+        <p>hello world</p>
         <p v-text="msg"></p>
     </div>
 </template>
