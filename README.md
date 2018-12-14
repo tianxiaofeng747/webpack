@@ -1,19 +1,29 @@
-# vue-clock
+# my-ui
 
-> npm发布vue包测试
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install vue-clock-tian
-
-# 引用
-import vueClock from './components/vueClock'
-template
-<vue-clock></vue-clock>
-
-
+## Project setup
+```
+yarn install
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Compiles and hot-reloads for development
+```
+yarn run serve
+```
+
+### Compiles and minifies for production
+```
+yarn run build
+```
+
+### Run your tests
+```
+yarn run test
+```
+
+### Lints and fixes files
+```
+yarn run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

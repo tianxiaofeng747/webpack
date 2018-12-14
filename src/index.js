@@ -1,15 +1,17 @@
-/**
- * Created by Administrator on 2018/3/23.
- */
-import vueClock from './components/vueClock.vue'
+import HelloWorld from './components/HelloWorld';
+const components  =[
+	HelloWorld
+];
+const install = function(Vue) {
+	components.forEach(component => {
+		Vue.component(component.name, component);
+	});
+};
 
-const vueTest = {
-    install: function (Vue) {
-        if (typeof window !== 'undefined' && window.Vue) {
-            Vue = window.Vue
-        }
-        Vue.component('vueClock', vueClock)
-    }
+/* istanbul ignore if */
+if (typeof window !== 'undefined' && window.Vue) {
+	install(window.Vue);
 }
-
-export default vueTest;
+export default {
+	install
+};
